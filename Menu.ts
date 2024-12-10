@@ -1,4 +1,5 @@
 import readlinesync = require("readline-sync");
+import { colors } from "./src/util/Colors";
 
 export function main() {
 
@@ -7,6 +8,7 @@ export function main() {
     let continuar = true;
 
     while (continuar){
+        console.log(colors.bg.black, colors.fg.magenta)
         console.log("=====================================================");
         console.log("                                                     ");
         console.log("                NewBank & Associados                 ");
@@ -24,59 +26,58 @@ export function main() {
         console.log("            0 - Sair                                 ");
         console.log("                                                     ");
         console.log("=====================================================");
-        console.log("                                                     ");
+        console.log(colors.reset);
 
         console.log("Digite a operacao desejada: ");
         opcao = readlinesync.questionInt();
 
         switch (opcao) {
             case 1:
-                console.log("\nCriar uma Conta\n");
+                console.log(colors.fg.magentastrong,"\nCriar uma Conta\n", colors.reset);
 
                 break;
             case 2:
-                console.log("\nLista de contas cadastradas\n");
+                console.log(colors.fg.magentastrong,"\nLista de contas cadastradas\n", colors.reset);
 
                 break;
 
             case 3:
-                console.log("\nConsultar dados da Conta\n");
+                console.log(colors.fg.magentastrong,"\nConsultar dados da Conta\n", colors.reset);
 
                 break;
 
             case 4:
-                console.log("\nAtualizar dados da Conta\n");
+                console.log(colors.fg.magentastrong,"\nAtualizar dados da Conta\n", colors.reset);
 
                 break;
 
             case 5:
-                console.log("\nApagar uma Conta\n");
+                console.log(colors.fg.magentastrong,"\nApagar uma Conta\n", colors.reset);
 
                 break;
 
             case 6:
-                console.log("\nSaque\n");
+                console.log(colors.fg.magentastrong,"\nSaque\n", colors.reset);
 
                 break;
 
             case 7:
-                console.log("\nDeposito\n");
+                console.log(colors.fg.magentastrong,"\nDeposito\n", colors.reset);
 
                 break;
 
             case 8:
-                console.log("\nTransferencia\n");
+                console.log(colors.fg.magentastrong,"\nTransferencia\n", colors.reset);
 
                 break;
 
             case 0:
-                console.log("\nNewBank & Associados - O seu Futuro começa aqui!");
                 sobre();
                 continuar = false;
                 break;
 
             default:
-                console.log("\nOpcao Invalida!\n");
+                console.log(colors.fg.magentastrong,"\nOpcao Invalida!\n", colors.reset);
 
                 break;
         }
@@ -84,11 +85,14 @@ export function main() {
 }
 
 export function sobre(): void {
-    console.log("\n===================================================");
-    console.log("Projeto Desenvolvido por: ");
-    console.log("Josiane Fermao - josianef@generation.org");
-    console.log("github.com/josifermaodev");
-    console.log("====================================================");
+    console.log(colors.bg.black, colors.fg.magenta)
+    console.log("\n       NewBank & Associados - O seu Futuro começa aqui!");
+    console.log("\n     ===================================================");
+    console.log("           Projeto Desenvolvido por: ");
+    console.log("           Josiane Fermao - josianef@generation.org");
+    console.log("           github.com/josifermaodev");
+    console.log("     ====================================================");
+    console.log(colors.reset);
 }
 
 main();
