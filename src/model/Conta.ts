@@ -1,3 +1,5 @@
+import { colors } from "../util/Colors";
+
 export class Conta{
     //Modelo de dados
     private _numero: number;
@@ -60,7 +62,7 @@ export class Conta{
     //Método para realizar saque
     public sacar(valor: number): boolean{ 
         if(valor > this._saldo){
-            console.log("Saldo insuficiente!")
+            console.log("  Saldo insuficiente!")
             return false;
         }
 
@@ -90,9 +92,12 @@ export class Conta{
                 break;
         }
 
+        console.log(colors.fg.magenta)
+        console.log('')
         console.log("==============================================");
         console.log(`============  Dados da conta  ================`);
         console.log("==============================================");
+        console.log(colors.reset)
         console.log(`  Numero da conta: ${this._numero}`);
         console.log(`  Numero da agencia: ${this._agencia}`);
         console.log(`  Tipo da conta: ${tipo}`);
