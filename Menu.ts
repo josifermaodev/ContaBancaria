@@ -71,12 +71,11 @@ export function main() {
                     break;
                         
                     case 2:
-                        console.log("Digite o Aniversario da Poupanca: ")
+                        console.log("Digite o dia de Aniversario da Poupanca: ")
                         aniversario = readlinesync.questionInt('');
                         contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), agencia, tipo, titular, saldo, aniversario));
                     break;
                 }
-
 
                 keyPress()
                 break;
@@ -102,11 +101,53 @@ export function main() {
             case 4:
                 console.log(colors.fg.magentastrong,"\nAtualizar dados da Conta\n", colors.reset);
 
+                console.log("Digite o numero da Conta: ")
+                numero = readlinesync.questionInt('')
+
+                let conta = contas.buscarNoArray(numero);
+
+                if (conta !== null){
+                    console.log("Digite o novo numero da Agência: ")
+                    agencia = readlinesync.questionInt('');
+
+                    console.log("Digite o novo nome do Titular: ")
+                    titular = readlinesync.question('');
+
+
+                    console.log("Digite o novo Saldo da Conta: ")
+                    saldo = readlinesync.questionFloat('');
+
+                    tipo = conta.tipo;
+
+                    switch (tipo){
+                        case 1:
+                            console.log("Digite o novo Limite da Conta Corrente: ")
+                            limite = readlinesync.questionFloat('');
+                            contas.atualizar(new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
+                        break;
+                            
+                        case 2:
+                            console.log("Digite o novo dia de Aniversario da Poupanca: ")
+                            aniversario = readlinesync.questionInt('');
+                            contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
+                        break;
+                    }
+                }else{
+                    console.log("Conta nao encontrada!")
+                }
+
+                
+
                 keyPress()
                 break;
 
             case 5:
                 console.log(colors.fg.magentastrong,"\nApagar uma Conta\n", colors.reset);
+
+                console.log("Digite o numero da Conta: ");
+                numero = readlinesync.questionInt('');
+
+                contas.deletar(numero);
 
                 keyPress()
                 break;
