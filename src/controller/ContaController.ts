@@ -18,7 +18,6 @@ export class ContaController implements ContaRepository {
 
         //Lista de dados
         buscaPorTitular.forEach( conta => conta.visualizar() );
-
     }
 
     procurarPorNumero(numero: number): void {

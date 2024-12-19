@@ -4,11 +4,11 @@ import { Conta } from "../model/Conta";
 export interface ContaRepository{
 
     //Médodos do CRUD (creatm read, Update, Delete)
-    procurarPorNumero(numero:number):void;
-    listarTodas():void;
-    cadastrar(conta:Conta):void;
-    atualizar(conta:Conta):void;
-    deletar(numero: number):void;
+    procurarPorNumero(numero: number): void;
+    listarTodas(): void;
+    cadastrar(conta: Conta): void;
+    atualizar(conta: Conta): void;
+    deletar(numero: number): void;
     procurarPorTitular(titular: string): void;
 
     //Métodos Bancários
